@@ -1,0 +1,101 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import {
+    LayoutDashboard,
+    Users,
+    KanbanSquare,
+    CheckSquare,
+    Settings,
+    LogOut,
+    Sparkles,
+    BarChart3,
+    Activity,
+    MessageSquare,
+    Workflow,
+    Mail,
+    BrainCircuit,
+    Banknote,
+    Megaphone,
+    LifeBuoy,
+    Trophy
+} from "lucide-react";
+import Image from "next/image";
+
+const Sidebar = () => {
+    const pathname = usePathname();
+
+    const navItems = [
+        { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
+        { name: "Contacts", href: "/contacts", icon: Users },
+        { name: "Pipeline", href: "/pipeline", icon: KanbanSquare },
+        { name: "Tasks", href: "/tasks", icon: CheckSquare },
+        { name: "Automations", href: "/automations", icon: Workflow },
+        { name: "Campaigns", href: "/campaigns", icon: Mail },
+        { name: "Marketing", href: "/marketing", icon: Megaphone },
+        { name: "Finance", href: "/finance", icon: Banknote },
+        { name: "Support", href: "/support", icon: LifeBuoy },
+        { name: "Team", href: "/team-performance", icon: Trophy },
+        { name: "Comms", href: "/comms", icon: MessageSquare },
+        { name: "Activities", href: "/activities", icon: Activity },
+        { name: "Intelligence", href: "/intelligence", icon: BrainCircuit },
+        { name: "AI Assistant", href: "/ai", icon: Sparkles },
+        { name: "Reports", href: "/reports", icon: BarChart3 },
+    ];
+
+    return (
+        <aside className="w-[260px] bg-card border-r border-border flex flex-col sticky top-0 h-screen texture-matte overflow-y-auto custom-scrollbar">
+            <div className="px-6 py-8">
+                <Image src="/logo_full.jpg" alt="NitiCRMs" width={170} height={50} className="rounded-lg object-contain invert mix-blend-screen" />
+            </div>
+
+            <nav className="flex-1 px-4 space-y-1">
+                {navItems.map((item) => {
+                    const isActive = pathname.startsWith(item.href);
+                    return (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all relative group ${isActive
+                                ? "text-black texture-paper shadow-md shadow-primary/10"
+                                : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                                }`}
+                        >
+                            <item.icon size={18} className={isActive ? "text-black" : "text-zinc-500 group-hover:text-foreground"} />
+                            <span>{item.name}</span>
+                        </Link>
+                    );
+                })}
+            </nav>
+
+            <div className="px-6 py-4">
+                <div className="p-4 bg-gradient-to-br from-zinc-800/50 to-zinc-900 border border-white/5 rounded-xl">
+                    <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-xs font-bold text-black border border-white/20">VF</div>
+                        <div>
+                            <p className="text-white text-sm font-bold">Vinayak</p>
+                            <p className="text-zinc-500 text-xs">Admin</p>
+                        </div>
+                    </div>
+                    <Link href="/team" className="text-xs text-primary hover:underline flex items-center gap-1 group">
+                        Manage Team <Users size={10} className="group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
+                </div>
+            </div>
+
+            <div className="mt-auto p-4 border-t border-border space-y-1">
+                <Link href="/settings" className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all">
+                    <Settings size={18} className="text-zinc-500 hover:text-foreground" />
+                    <span>Settings</span>
+                </Link>
+                <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-all text-left">
+                    <LogOut size={18} className="text-zinc-500 hover:text-red-400" />
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+    );
+};
+
+export default Sidebar;
