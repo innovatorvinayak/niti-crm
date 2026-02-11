@@ -59,21 +59,21 @@ export default function FeaturesPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-black text-white font-sans selection:bg-primary selection:text-black texture-matte">
+        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-white texture-matte">
             {/* Navbar */}
-            <header className="fixed top-0 w-full z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl">
+            <header className="fixed top-0 w-full z-50 border-b border-border bg-background/80 backdrop-blur-xl">
                 <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                     <Link href="/" className="flex items-center gap-3">
-                        <Image src="/logo_full.jpg" alt="NitiCRMs" width={140} height={40} className="object-contain rounded-lg invert mix-blend-screen" />
+                        <Image src="/logo_full.jpg" alt="NitiCRMs" width={140} height={40} className="object-contain rounded-lg" />
                     </Link>
-                    <nav className="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
-                        <Link href="/features" className="text-white">Features</Link>
+                    <nav className="hidden md:flex gap-8 text-sm font-medium text-muted-foreground">
+                        <Link href="/features" className="text-foreground font-semibold">Features</Link>
                         <Link href="/pricing" className="hover:text-primary transition-colors">Pricing</Link>
                         <Link href="/manifesto" className="hover:text-primary transition-colors">Manifesto</Link>
                     </nav>
                     <div className="flex gap-4 items-center">
-                        <Link href="/login" className="text-sm font-medium hover:text-white text-zinc-400 transition-colors">Log In</Link>
-                        <Link href="/dashboard" className="px-5 py-2.5 texture-paper text-black text-sm font-semibold rounded-full hover:bg-white transition-all shadow-[0_0_20px_-5px_rgba(245,245,220,0.5)]">
+                        <Link href="/login" className="text-sm font-medium hover:text-foreground text-muted-foreground transition-colors">Log In</Link>
+                        <Link href="/dashboard" className="px-5 py-2.5 texture-paper bg-primary text-primary-foreground text-sm font-semibold rounded-full hover:bg-primary/90 transition-all shadow-[0_0_20px_-5px_rgba(234,179,8,0.5)]">
                             Get Started
                         </Link>
                     </div>
@@ -91,7 +91,7 @@ export default function FeaturesPage() {
                     <h1 className="text-5xl md:text-7xl font-bold mb-6">
                         A CRM that <span className="text-gradient-gold">thinks</span> like you.
                     </h1>
-                    <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                         We stripped away the clutter and focused on the tools that actually help you close deals.
                     </p>
                 </motion.div>
@@ -106,16 +106,16 @@ export default function FeaturesPage() {
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-primary/30 transition-all group hover:-translate-y-1 relative overflow-hidden"
+                            className="p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all group hover:-translate-y-1 relative overflow-hidden shadow-sm"
                         >
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-[50px] -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-colors" />
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[50px] -translate-y-1/2 translate-x-1/2 group-hover:bg-primary/10 transition-colors" />
 
-                            <div className={`w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform ${feature.color}`}>
+                            <div className={`w-12 h-12 rounded-xl bg-muted flex items-center justify-center mb-6 group-hover:scale-110 transition-transform ${feature.color}`}>
                                 <feature.icon size={24} />
                             </div>
 
-                            <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
-                            <p className="text-zinc-500 leading-relaxed">
+                            <h3 className="text-xl font-bold mb-3 text-foreground">{feature.title}</h3>
+                            <p className="text-muted-foreground leading-relaxed">
                                 {feature.description}
                             </p>
                         </motion.div>
@@ -127,26 +127,26 @@ export default function FeaturesPage() {
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="mt-32 p-12 rounded-3xl bg-gradient-to-br from-zinc-900 to-black border border-white/10 text-center relative overflow-hidden"
+                    className="mt-32 p-12 rounded-3xl bg-gradient-to-br from-muted to-background border border-border text-center relative overflow-hidden shadow-sm"
                 >
                     <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-20 mix-blend-overlay" />
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
 
                     <div className="relative z-10">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to regain focus?</h2>
-                        <p className="text-zinc-400 mb-8 max-w-xl mx-auto">Join thousands of high-performing teams who have switched to NitiCRMs.</p>
-                        <Link href="/dashboard" className="inline-flex items-center gap-2 px-8 py-4 texture-paper text-black text-lg font-bold rounded-full hover:scale-105 transition-transform">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-6 text-foreground">Ready to regain focus?</h2>
+                        <p className="text-muted-foreground mb-8 max-w-xl mx-auto">Join thousands of high-performing teams who have switched to NitiCRMs.</p>
+                        <Link href="/dashboard" className="inline-flex items-center gap-2 px-8 py-4 texture-paper bg-primary text-primary-foreground text-lg font-bold rounded-full hover:scale-105 transition-transform shadow-lg shadow-primary/20">
                             Start Your Free Trial <ArrowRight size={20} />
                         </Link>
                     </div>
                 </motion.div>
             </main>
 
-            <footer className="py-12 border-t border-white/5 bg-black text-center texture-matte">
+            <footer className="py-12 border-t border-border bg-background text-center texture-matte">
                 <div className="flex items-center justify-center gap-2 mb-8 opacity-50">
-                    <Image src="/logo_full.jpg" alt="NitiCRMs" width={130} height={40} className="object-contain invert mix-blend-screen" />
+                    <Image src="/logo_full.jpg" alt="NitiCRMs" width={130} height={40} className="object-contain" />
                 </div>
-                <p className="text-zinc-600 text-sm">&copy; {new Date().getFullYear()} NitiCRMs Inc. Crafted with precision.</p>
+                <p className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()} NitiCRMs Inc. Crafted with precision.</p>
             </footer>
         </div>
     );

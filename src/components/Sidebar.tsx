@@ -47,7 +47,7 @@ const Sidebar = () => {
     return (
         <aside className="w-[260px] bg-card border-r border-border flex flex-col sticky top-0 h-screen texture-matte overflow-y-auto custom-scrollbar">
             <div className="px-6 py-8">
-                <Image src="/logo_full.jpg" alt="NitiCRMs" width={170} height={50} className="rounded-lg object-contain invert mix-blend-screen" />
+                <Image src="/logo_full.jpg" alt="NitiCRMs" width={170} height={50} className="rounded-lg object-contain" />
             </div>
 
             <nav className="flex-1 px-4 space-y-1">
@@ -58,11 +58,11 @@ const Sidebar = () => {
                             key={item.href}
                             href={item.href}
                             className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all relative group ${isActive
-                                ? "text-black texture-paper shadow-md shadow-primary/10"
-                                : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                                ? "text-primary-foreground texture-paper shadow-md shadow-primary/10"
+                                : "text-muted-foreground hover:text-foreground hover:bg-muted"
                                 }`}
                         >
-                            <item.icon size={18} className={isActive ? "text-black" : "text-zinc-500 group-hover:text-foreground"} />
+                            <item.icon size={18} className={isActive ? "text-primary-foreground" : "text-muted-foreground group-hover:text-foreground"} />
                             <span>{item.name}</span>
                         </Link>
                     );
@@ -70,12 +70,12 @@ const Sidebar = () => {
             </nav>
 
             <div className="px-6 py-4">
-                <div className="p-4 bg-gradient-to-br from-zinc-800/50 to-zinc-900 border border-white/5 rounded-xl">
+                <div className="p-4 bg-muted border border-border rounded-xl">
                     <div className="flex items-center gap-3 mb-2">
-                        <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-xs font-bold text-black border border-white/20">VF</div>
+                        <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-xs font-bold text-primary-foreground border border-border">VF</div>
                         <div>
-                            <p className="text-white text-sm font-bold">Vinayak</p>
-                            <p className="text-zinc-500 text-xs">Admin</p>
+                            <p className="text-foreground text-sm font-bold">Vinayak</p>
+                            <p className="text-muted-foreground text-xs">Admin</p>
                         </div>
                     </div>
                     <Link href="/team" className="text-xs text-primary hover:underline flex items-center gap-1 group">
@@ -85,12 +85,12 @@ const Sidebar = () => {
             </div>
 
             <div className="mt-auto p-4 border-t border-border space-y-1">
-                <Link href="/settings" className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all">
-                    <Settings size={18} className="text-zinc-500 hover:text-foreground" />
+                <Link href="/settings" className="flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted transition-all">
+                    <Settings size={18} className="text-muted-foreground hover:text-foreground" />
                     <span>Settings</span>
                 </Link>
-                <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-red-400 hover:bg-red-500/10 transition-all text-left">
-                    <LogOut size={18} className="text-zinc-500 hover:text-red-400" />
+                <button className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-red-600 hover:bg-red-500/10 transition-all text-left">
+                    <LogOut size={18} className="text-muted-foreground hover:text-red-600" />
                     <span>Logout</span>
                 </button>
             </div>

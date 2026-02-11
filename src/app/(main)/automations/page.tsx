@@ -41,57 +41,57 @@ export default function AutomationsPage() {
     const [selectedWorkflow, setSelectedWorkflow] = useState("Lead Nurturing Sequence");
 
     return (
-        <div className="h-full flex flex-col font-sans text-white bg-[#050505] overflow-hidden">
+        <div className="h-full flex flex-col font-sans text-foreground bg-background overflow-hidden">
             {/* Header */}
-            <div className="h-16 border-b border-white/5 flex items-center justify-between px-6 bg-[#0a0a0a]/50 backdrop-blur-md z-10">
+            <div className="h-16 border-b border-border flex items-center justify-between px-6 bg-background/50 backdrop-blur-md z-10">
                 <div className="flex items-center gap-4">
-                    <div className="p-2 bg-purple-500/10 rounded-lg text-purple-400 border border-purple-500/20">
+                    <div className="p-2 bg-purple-500/10 rounded-lg text-purple-600 border border-purple-500/20">
                         <Zap size={20} />
                     </div>
                     <div>
                         <h1 className="text-lg font-bold flex items-center gap-2">
                             {selectedWorkflow}
-                            <span className="text-[10px] px-2 py-0.5 bg-green-500/10 text-green-400 border border-green-500/20 rounded-full font-mono uppercase tracking-wider">Active</span>
+                            <span className="text-[10px] px-2 py-0.5 bg-green-500/10 text-green-600 border border-green-500/20 rounded-full font-mono uppercase tracking-wider">Active</span>
                         </h1>
-                        <p className="text-xs text-zinc-500">Last run: 12 minutes ago • 452 Enrollments</p>
+                        <p className="text-xs text-muted-foreground">Last run: 12 minutes ago • 452 Enrollments</p>
                     </div>
                 </div>
                 <div className="flex gap-3">
-                    <button className="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-sm font-medium transition-colors border border-white/10 flex items-center gap-2">
+                    <button className="px-4 py-2 bg-muted hover:bg-muted/80 rounded-lg text-sm font-medium transition-colors border border-border flex items-center gap-2">
                         <Pause size={14} /> Pause
                     </button>
-                    <button className="px-4 py-2 bg-primary text-black rounded-lg text-sm font-bold hover:bg-white transition-colors flex items-center gap-2 shadow-[0_0_15px_-3px_rgba(245,245,220,0.3)]">
+                    <button className="px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-bold hover:bg-primary/90 transition-colors flex items-center gap-2 shadow-lg shadow-primary/20">
                         <Plus size={16} /> Add Step
                     </button>
                 </div>
             </div>
 
             {/* Canvas Area */}
-            <div className="flex-1 relative bg-[#050505] overflow-auto texture-dots">
-                {/* Background Grid Pattern (CSS needs to be defined globally usually, but using repeating-linear-gradient here for demo) */}
-                <div className="absolute inset-0 opacity-10 pointer-events-none"
-                    style={{ backgroundImage: 'radial-gradient(circle, #333 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
+            <div className="flex-1 relative bg-muted/20 overflow-auto texture-dots">
+                {/* Background Grid Pattern */}
+                <div className="absolute inset-0 opacity-20 pointer-events-none"
+                    style={{ backgroundImage: 'radial-gradient(circle, #cbd5e1 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
                 </div>
 
                 <div className="min-h-full min-w-full p-20 flex flex-col items-center relative">
-                    {/* Connecting Lines (Simplified for pure Frontend) */}
+                    {/* Connecting Lines */}
                     <svg className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
                         <defs>
                             <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-                                <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#cbd5e1" />
                             </marker>
                         </defs>
                         {/* Example static connections matching the node coords roughly */}
                         {/* Node 1 -> 2 */}
-                        <path d="M 500 120 L 500 200" stroke="#333" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
+                        <path d="M 500 120 L 500 200" stroke="#cbd5e1" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
                         {/* Node 2 -> 3 (Left Branch) */}
-                        <path d="M 450 250 C 450 300, 350 300, 350 340" stroke="#333" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
+                        <path d="M 450 250 C 450 300, 350 300, 350 340" stroke="#cbd5e1" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
                         {/* Node 2 -> 4 (Right Branch) */}
-                        <path d="M 550 250 C 550 300, 650 300, 650 340" stroke="#333" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
+                        <path d="M 550 250 C 550 300, 650 300, 650 340" stroke="#cbd5e1" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
                         {/* Node 3 -> 5 */}
-                        <path d="M 350 400 L 350 470" stroke="#333" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
+                        <path d="M 350 400 L 350 470" stroke="#cbd5e1" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
                         {/* Node 5 -> 6 */}
-                        <path d="M 350 530 L 350 600" stroke="#333" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
+                        <path d="M 350 530 L 350 600" stroke="#cbd5e1" strokeWidth="2" fill="none" markerEnd="url(#arrowhead)" />
                     </svg>
 
                     <div className="flex flex-col items-center gap-12 z-10 w-full max-w-4xl">
@@ -112,8 +112,8 @@ export default function AutomationsPage() {
                             <div className="flex flex-col gap-12 items-center">
                                 <WorkflowNodeCard node={nodes[3]} />
                                 {/* End of branch */}
-                                <div className="w-8 h-8 rounded-full border border-white/10 bg-zinc-900 flex items-center justify-center text-zinc-600">
-                                    <div className="w-2 h-2 bg-zinc-600 rounded-full"></div>
+                                <div className="w-8 h-8 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground">
+                                    <div className="w-2 h-2 bg-muted-foreground/50 rounded-full"></div>
                                 </div>
                             </div>
                         </div>
@@ -123,15 +123,15 @@ export default function AutomationsPage() {
             </div>
 
             {/* Floating Palette */}
-            <div className="absolute top-20 left-6 w-64 bg-[#0a0a0a]/90 backdrop-blur-md border border-white/10 rounded-xl p-4 shadow-2xl">
-                <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-wider mb-3">Available Triggers</h3>
+            <div className="absolute top-20 left-6 w-64 bg-card/90 backdrop-blur-md border border-border rounded-xl p-4 shadow-2xl">
+                <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-3">Available Triggers</h3>
                 <div className="space-y-2">
                     {["Form Submitted", "Page Visited", "Deal Stage Changed", "Tag Added"].map((t, i) => (
-                        <div key={i} className="flex items-center gap-3 p-2 hover:bg-white/5 rounded-lg cursor-grab active:cursor-grabbing transition-colors group">
-                            <div className="w-6 h-6 rounded flex items-center justify-center bg-zinc-800 text-zinc-400 group-hover:bg-primary/20 group-hover:text-primary transition-colors">
+                        <div key={i} className="flex items-center gap-3 p-2 hover:bg-muted/50 rounded-lg cursor-grab active:cursor-grabbing transition-colors group">
+                            <div className="w-6 h-6 rounded flex items-center justify-center bg-muted text-muted-foreground group-hover:bg-primary/20 group-hover:text-primary transition-colors">
                                 <Zap size={12} />
                             </div>
-                            <span className="text-sm text-zinc-300 group-hover:text-white">{t}</span>
+                            <span className="text-sm text-foreground group-hover:text-primary">{t}</span>
                         </div>
                     ))}
                 </div>
@@ -140,14 +140,14 @@ export default function AutomationsPage() {
     );
 }
 
-function WorkflowNodeCard({ node, color = "border-white/10 bg-[#0a0a0a]", iconColor = "text-primary", type = "normal" }: { node: WorkflowNode, color?: string, iconColor?: string, type?: "normal" | "delay" }) {
+function WorkflowNodeCard({ node, color = "border-border bg-card", iconColor = "text-primary", type = "normal" }: { node: WorkflowNode, color?: string, iconColor?: string, type?: "normal" | "delay" }) {
     if (type === "delay") {
         return (
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 whileHover={{ scale: 1.05 }}
-                className="flex items-center gap-3 px-4 py-2 rounded-full border border-dashed border-zinc-700 bg-zinc-900/50 text-zinc-400 text-sm font-mono cursor-pointer hover:border-zinc-500 transition-all"
+                className="flex items-center gap-3 px-4 py-2 rounded-full border border-dashed border-border bg-muted/50 text-muted-foreground text-sm font-mono cursor-pointer hover:border-primary/50 transition-all"
             >
                 <Clock size={14} />
                 {node.label}
@@ -163,18 +163,17 @@ function WorkflowNodeCard({ node, color = "border-white/10 bg-[#0a0a0a]", iconCo
             className={`w-72 p-4 rounded-xl border ${color} relative group cursor-pointer hover:border-primary/50 transition-all`}
         >
             <div className="flex justify-between items-start mb-2">
-                <div className={`p-2 rounded-lg bg-white/5 ${iconColor}`}>
+                <div className={`p-2 rounded-lg bg-muted ${iconColor}`}>
                     <node.icon size={18} />
                 </div>
-                <button className="text-zinc-600 hover:text-white transition-colors">
+                <button className="text-muted-foreground hover:text-foreground transition-colors">
                     <MoreHorizontal size={16} />
                 </button>
             </div>
-            <h4 className="font-bold text-white text-sm">{node.label}</h4>
-            <p className="text-xs text-zinc-500 mt-1">{node.description}</p>
+            <h4 className="font-bold text-foreground text-sm">{node.label}</h4>
+            <p className="text-xs text-muted-foreground mt-1">{node.description}</p>
 
-            {/* Status Indicator */}
-            <div className={`absolute top-4 right-4 w-2 h-2 rounded-full ${node.status === 'active' ? 'bg-green-500' : 'bg-zinc-600'}`}></div>
+            <div className={`absolute top-4 right-4 w-2 h-2 rounded-full ${node.status === 'active' ? 'bg-green-500' : 'bg-muted-foreground'}`}></div>
         </motion.div>
     );
 }

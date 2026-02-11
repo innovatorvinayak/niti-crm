@@ -93,22 +93,22 @@ export default function AIAssistantPage() {
     };
 
     return (
-        <div className="flex h-full flex-col bg-black text-white font-sans overflow-hidden">
+        <div className="flex h-full flex-col bg-background text-foreground font-sans overflow-hidden">
             {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/5 bg-black/50 backdrop-blur-md sticky top-0 z-10">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-background/95 backdrop-blur-md sticky top-0 z-10">
                 <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/20">
                         <Sparkles className="text-white w-5 h-5" />
                     </div>
                     <div>
                         <h1 className="font-bold text-lg">AI Assistant</h1>
-                        <p className="text-xs text-zinc-500 flex items-center gap-1">
+                        <p className="text-xs text-muted-foreground flex items-center gap-1">
                             <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                             Online
                         </p>
                     </div>
                 </div>
-                <button className="p-2 hover:bg-white/5 rounded-lg transition-colors text-zinc-400 hover:text-white">
+                <button className="p-2 hover:bg-muted rounded-lg transition-colors text-muted-foreground hover:text-foreground">
                     <MoreHorizontal size={20} />
                 </button>
             </div>
@@ -123,7 +123,7 @@ export default function AIAssistantPage() {
                         className={`flex gap-4 ${msg.role === "user" ? "flex-row-reverse" : "flex-row"}`}
                     >
                         {/* Avatar */}
-                        <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold border border-white/10 ${msg.role === "user" ? "bg-zinc-800" : "bg-primary text-black"
+                        <div className={`w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold border border-border ${msg.role === "user" ? "bg-secondary text-secondary-foreground" : "bg-primary text-primary-foreground"
                             }`}>
                             {msg.role === "user" ? <User size={14} /> : <Bot size={16} />}
                         </div>
@@ -131,8 +131,8 @@ export default function AIAssistantPage() {
                         {/* Bubble */}
                         <div className={`max-w-[80%] space-y-2`}>
                             <div className={`p-4 rounded-2xl border ${msg.role === "user"
-                                    ? "bg-zinc-900 border-zinc-800 text-white rounded-tr-sm"
-                                    : "bg-[#0a0a0a] border-white/10 text-zinc-300 rounded-tl-sm shadow-sm"
+                                ? "bg-secondary border-secondary text-secondary-foreground rounded-tr-sm"
+                                : "bg-card border-border text-foreground rounded-tl-sm shadow-sm"
                                 }`}>
                                 <p className="leading-relaxed whitespace-pre-wrap">{msg.content}</p>
                             </div>
@@ -143,7 +143,7 @@ export default function AIAssistantPage() {
                                     initial={{ opacity: 0, scale: 0.95 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: 0.2 }}
-                                    className="p-3 bg-zinc-900/50 border border-white/5 rounded-xl flex items-center justify-between group hover:border-primary/30 transition-colors cursor-pointer"
+                                    className="p-3 bg-muted/30 border border-border rounded-xl flex items-center justify-between group hover:border-primary/30 transition-colors cursor-pointer"
                                 >
                                     <div className="flex items-center gap-3">
                                         <div className="w-8 h-8 rounded-lg bg-primary/10 text-primary flex items-center justify-center">
@@ -152,22 +152,22 @@ export default function AIAssistantPage() {
                                             {msg.action.type === "update_deal" && <Calendar size={16} />}
                                         </div>
                                         <div className="text-left">
-                                            <div className="font-medium text-white text-xs">Suggested Action</div>
-                                            <div className="text-zinc-400 text-xs">{msg.action.label}</div>
+                                            <div className="font-medium text-foreground text-xs">Suggested Action</div>
+                                            <div className="text-muted-foreground text-xs">{msg.action.label}</div>
                                         </div>
                                     </div>
-                                    <button className="px-3 py-1.5 bg-primary text-black text-xs font-bold rounded-lg hover:opacity-90 transition-opacity flex items-center gap-1">
+                                    <button className="px-3 py-1.5 bg-primary text-primary-foreground text-xs font-bold rounded-lg hover:opacity-90 transition-opacity flex items-center gap-1">
                                         Run <ArrowRight size={12} />
                                     </button>
                                 </motion.div>
                             )}
 
-                            <div className={`text-[10px] text-zinc-600 flex items-center gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
+                            <div className={`text-[10px] text-muted-foreground flex items-center gap-2 ${msg.role === "user" ? "justify-end" : "justify-start"}`}>
                                 <span>{msg.timestamp}</span>
                                 {msg.role === "assistant" && (
                                     <div className="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <button className="hover:text-white"><ThumbsUp size={10} /></button>
-                                        <button className="hover:text-white"><ThumbsDown size={10} /></button>
+                                        <button className="hover:text-foreground"><ThumbsUp size={10} /></button>
+                                        <button className="hover:text-foreground"><ThumbsDown size={10} /></button>
                                     </div>
                                 )}
                             </div>
@@ -181,13 +181,13 @@ export default function AIAssistantPage() {
                         animate={{ opacity: 1 }}
                         className="flex gap-4"
                     >
-                        <div className="w-8 h-8 rounded-full bg-primary text-black flex-shrink-0 flex items-center justify-center text-xs font-bold border border-white/10">
+                        <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex-shrink-0 flex items-center justify-center text-xs font-bold border border-border">
                             <Bot size={16} />
                         </div>
-                        <div className="bg-[#0a0a0a] border border-white/10 p-4 rounded-2xl rounded-tl-sm flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-bounce" style={{ animationDelay: "0ms" }} />
-                            <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-bounce" style={{ animationDelay: "150ms" }} />
-                            <span className="w-1.5 h-1.5 rounded-full bg-zinc-500 animate-bounce" style={{ animationDelay: "300ms" }} />
+                        <div className="bg-card border border-border p-4 rounded-2xl rounded-tl-sm flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground animate-bounce" style={{ animationDelay: "0ms" }} />
+                            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground animate-bounce" style={{ animationDelay: "150ms" }} />
+                            <span className="w-1.5 h-1.5 rounded-full bg-muted-foreground animate-bounce" style={{ animationDelay: "300ms" }} />
                         </div>
                     </motion.div>
                 )}
@@ -195,7 +195,7 @@ export default function AIAssistantPage() {
             </div>
 
             {/* Input Area */}
-            <div className="p-4 bg-black border-t border-white/5">
+            <div className="p-4 bg-background border-t border-border">
                 <div className="max-w-4xl mx-auto relative group">
                     <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-focus-within:opacity-20 transition-opacity rounded-2xl" />
                     <textarea
@@ -203,19 +203,19 @@ export default function AIAssistantPage() {
                         onChange={(e) => setInput(e.target.value)}
                         onKeyDown={handleKeyDown}
                         placeholder="Ask AI to find deals, draft emails, or summarize tasks..."
-                        className="w-full bg-[#0a0a0a] text-white placeholder:text-zinc-600 border border-white/10 rounded-2xl py-4 pl-5 pr-14 resize-none focus:outline-none focus:border-primary/40 focus:bg-zinc-900 transition-all min-h-[60px] max-h-32 shadow-2xl custom-scrollbar"
+                        className="w-full bg-muted text-foreground placeholder:text-muted-foreground border border-border rounded-2xl py-4 pl-5 pr-14 resize-none focus:outline-none focus:border-primary/40 focus:bg-background transition-all min-h-[60px] max-h-32 shadow-2xl custom-scrollbar"
                         rows={1}
                         style={{ height: '60px' }}
                     />
                     <button
                         onClick={handleSend}
                         disabled={!input.trim() || isTyping}
-                        className="absolute right-3 bottom-3 p-2 bg-primary text-black rounded-xl hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100 transition-all disabled:cursor-not-allowed shadow-lg shadow-primary/10"
+                        className="absolute right-3 bottom-3 p-2 bg-primary text-primary-foreground rounded-xl hover:scale-105 active:scale-95 disabled:opacity-50 disabled:hover:scale-100 transition-all disabled:cursor-not-allowed shadow-lg shadow-primary/10"
                     >
                         <Send size={18} fill="currentColor" />
                     </button>
                 </div>
-                <div className="text-center mt-3 text-[10px] text-zinc-600">
+                <div className="text-center mt-3 text-[10px] text-muted-foreground">
                     AI can make mistakes. Consider checking important information.
                 </div>
             </div>

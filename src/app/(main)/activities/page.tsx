@@ -46,35 +46,35 @@ export default function ActivitiesPage() {
     };
 
     return (
-        <div className="max-w-5xl mx-auto space-y-6 font-sans p-6 text-white min-h-screen">
+        <div className="max-w-5xl mx-auto space-y-6 font-sans p-6 text-foreground min-h-screen">
             {/* Header */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
                     <h1 className="text-2xl font-bold flex items-center gap-2">
                         Activities
                     </h1>
-                    <p className="text-zinc-500 text-sm mt-1">Real-time feed of all team interactions.</p>
+                    <p className="text-muted-foreground text-sm mt-1">Real-time feed of all team interactions.</p>
                 </div>
                 <div className="flex gap-2">
-                    <button className="px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-white text-sm font-medium flex items-center gap-2 transition-colors">
+                    <button className="px-4 py-2 bg-muted hover:bg-muted/80 border border-border rounded-lg text-foreground text-sm font-medium flex items-center gap-2 transition-colors">
                         <Filter size={16} /> Filter
                     </button>
-                    <button className="px-4 py-2 bg-primary hover:bg-white text-black rounded-lg text-sm font-bold flex items-center gap-2 transition-colors shadow-lg shadow-primary/20 texture-paper">
+                    <button className="px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg text-sm font-bold flex items-center gap-2 transition-colors shadow-lg shadow-primary/20 texture-paper">
                         <Plus size={16} /> Log Activity
                     </button>
                 </div>
             </div>
 
             {/* Filters */}
-            <div className="flex justify-between items-center bg-[#0a0a0a] p-2 rounded-xl border border-white/5">
+            <div className="flex justify-between items-center bg-card p-2 rounded-xl border border-border">
                 <div className="flex gap-2 overflow-x-auto no-scrollbar">
                     {["All", "Calls", "Emails", "Meetings", "Tasks"].map((type) => (
                         <button
                             key={type}
                             onClick={() => setFilter(type)}
                             className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors whitespace-nowrap ${filter === type
-                                    ? "bg-white/10 text-white"
-                                    : "text-zinc-500 hover:text-white hover:bg-white/5"
+                                ? "bg-muted text-foreground"
+                                : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                                 }`}
                         >
                             {type}
@@ -82,11 +82,11 @@ export default function ActivitiesPage() {
                     ))}
                 </div>
                 <div className="relative hidden sm:block">
-                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500" size={14} />
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={14} />
                     <input
                         type="text"
                         placeholder="Search activities..."
-                        className="bg-transparent border-none text-sm text-white focus:ring-0 pl-9 w-48 placeholder:text-zinc-700"
+                        className="bg-transparent border-none text-sm text-foreground focus:ring-0 pl-9 w-48 placeholder:text-muted-foreground"
                     />
                 </div>
             </div>
@@ -103,34 +103,34 @@ export default function ActivitiesPage() {
                         transition={{ delay: index * 0.1 }}
                         className="relative z-10 pl-12 group"
                     >
-                        <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-[#0a0a0a] border border-white/10 flex items-center justify-center z-10 shadow-sm">
+                        <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center z-10 shadow-sm">
                             {getIcon(activity.type)}
                         </div>
 
-                        <div className="bg-[#0a0a0a] border border-white/5 rounded-xl p-4 hover:border-primary/20 transition-colors group-hover:bg-white/[0.02]">
+                        <div className="bg-card border border-border rounded-xl p-4 hover:border-primary/20 transition-colors group-hover:bg-muted/30">
                             <div className="flex justify-between items-start mb-1">
                                 <div className="flex items-center gap-2">
-                                    <span className="font-bold text-sm text-white">{activity.title}</span>
-                                    <span className={`text-[10px] px-1.5 py-0.5 rounded border border-white/5 ${activity.status === "Completed" ? "bg-green-500/10 text-green-400" :
-                                            activity.status === "Scheduled" ? "bg-blue-500/10 text-blue-400" :
-                                                "bg-red-500/10 text-red-400"
+                                    <span className="font-bold text-sm text-foreground">{activity.title}</span>
+                                    <span className={`text-[10px] px-1.5 py-0.5 rounded border border-border ${activity.status === "Completed" ? "bg-green-500/10 text-green-600" :
+                                        activity.status === "Scheduled" ? "bg-blue-500/10 text-blue-600" :
+                                            "bg-red-500/10 text-red-600"
                                         }`}>
                                         {activity.status}
                                     </span>
                                 </div>
-                                <span className="text-xs text-zinc-500 font-mono">{activity.time}</span>
+                                <span className="text-xs text-muted-foreground font-mono">{activity.time}</span>
                             </div>
 
-                            <p className="text-zinc-400 text-sm mb-3 leading-relaxed">
+                            <p className="text-muted-foreground text-sm mb-3 leading-relaxed">
                                 {activity.description}
                             </p>
 
-                            <div className="flex items-center justify-between pt-3 border-t border-white/5">
+                            <div className="flex items-center justify-between pt-3 border-t border-border">
                                 <div className="flex items-center gap-2">
-                                    <div className="w-5 h-5 rounded-full bg-zinc-800 flex items-center justify-center text-[9px] font-bold text-zinc-300 border border-white/10">
+                                    <div className="w-5 h-5 rounded-full bg-muted flex items-center justify-center text-[9px] font-bold text-muted-foreground border border-border">
                                         {activity.user}
                                     </div>
-                                    <span className="text-xs text-zinc-600">logged via <span className="text-zinc-400">{activity.type}</span></span>
+                                    <span className="text-xs text-muted-foreground">logged via <span className="text-foreground/80">{activity.type}</span></span>
                                 </div>
                                 <div className="text-xs text-primary bg-primary/5 px-2 py-1 rounded border border-primary/10">
                                     {activity.entity}

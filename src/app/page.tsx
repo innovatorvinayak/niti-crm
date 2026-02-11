@@ -22,20 +22,20 @@ const staggerContainer = {
 
 export default function LandingPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-black text-white overflow-hidden font-sans selection:bg-primary selection:text-black">
+    <div className="flex flex-col min-h-screen bg-background text-foreground overflow-hidden font-sans selection:bg-primary selection:text-white">
 
       {/* Navbar */}
-      <header className="fixed top-0 w-full z-50 border-b border-white/5 bg-black/80 backdrop-blur-xl texture-matte">
+      <header className="fixed top-0 w-full z-50 border-b border-border bg-background/80 backdrop-blur-xl texture-matte">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Image src="/logo_full.jpg" alt="NitiCRMs" width={180} height={50} className="object-contain rounded-lg invert mix-blend-screen" />
-          <nav className="hidden md:flex gap-8 text-sm font-medium text-zinc-400">
+          <Image src="/logo_full.jpg" alt="NitiCRMs" width={180} height={50} className="object-contain rounded-lg" />
+          <nav className="hidden md:flex gap-8 text-sm font-medium text-muted-foreground">
             <Link href="/features" className="hover:text-primary transition-colors">Features</Link>
             <Link href="/pricing" className="hover:text-primary transition-colors">Pricing</Link>
             <Link href="/manifesto" className="hover:text-primary transition-colors">Manifesto</Link>
           </nav>
           <div className="flex gap-4 items-center">
-            <Link href="/login" className="text-sm font-medium hover:text-white text-zinc-400 transition-colors">Log In</Link>
-            <Link href="/dashboard" className="px-5 py-2.5 texture-paper text-black text-sm font-semibold rounded-full hover:bg-white transition-all shadow-[0_0_20px_-5px_rgba(245,245,220,0.5)]">
+            <Link href="/login" className="text-sm font-medium hover:text-foreground text-muted-foreground transition-colors">Log In</Link>
+            <Link href="/dashboard" className="px-5 py-2.5 texture-paper bg-primary text-primary-foreground text-sm font-semibold rounded-full hover:bg-primary/90 transition-all shadow-[0_0_20px_-5px_rgba(234,179,8,0.5)]">
               Get Started
             </Link>
           </div>
@@ -54,10 +54,10 @@ export default function LandingPage() {
           variants={staggerContainer}
           className="relative z-10 max-w-5xl mx-auto flex flex-col items-center"
         >
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-medium text-accent mb-8">
+          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-muted border border-border text-xs font-medium text-primary mb-8 shadow-sm">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
             The Future of Relationship Management
           </motion.div>
@@ -67,17 +67,17 @@ export default function LandingPage() {
             <span className="text-gradient-gold">Absolute Clarity.</span>
           </motion.h1>
 
-          <motion.p variants={fadeInUp} className="text-lg md:text-xl text-zinc-400 max-w-2xl mb-12 leading-relaxed font-light">
+          <motion.p variants={fadeInUp} className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-12 leading-relaxed font-light">
             NitiCRMs is the decision layer for your business. We stripped away the bloat and added intelligence, giving you a CRM that actually works for you.
           </motion.p>
 
           <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-5 w-full justify-center">
-            <Link href="/dashboard" className="px-5 py-3 md:px-8 md:py-4 texture-paper text-black text-lg font-semibold rounded-full hover:bg-white transition-all shadow-lg shadow-primary/20 flex items-center gap-2 group">
+            <Link href="/dashboard" className="px-5 py-3 md:px-8 md:py-4 texture-paper bg-primary text-primary-foreground text-lg font-semibold rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 flex items-center gap-2 group">
               Start For Free
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <button className="px-8 py-4 bg-white/5 border border-white/10 text-white text-lg font-medium rounded-full hover:bg-white/10 transition-all flex items-center gap-2">
-              <LayoutDashboard className="w-5 h-5 text-zinc-400" />
+            <button className="px-8 py-4 bg-card border border-border text-foreground text-lg font-medium rounded-full hover:bg-muted transition-all flex items-center gap-2 shadow-sm">
+              <LayoutDashboard className="w-5 h-5 text-muted-foreground" />
               View Interactive Demo
             </button>
           </motion.div>
@@ -91,27 +91,27 @@ export default function LandingPage() {
           className="mt-24 relative w-full max-w-6xl perspective-1000 px-4"
         >
           <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent rounded-3xl blur-2xl -z-10" />
-          <div className="relative bg-[#050505] border border-white/10 rounded-2xl shadow-2xl overflow-hidden ring-1 ring-white/5 texture-matte">
+          <div className="relative bg-background border border-border rounded-2xl shadow-2xl overflow-hidden ring-1 ring-border texture-matte">
             {/* Fake Browser Header */}
-            <div className="h-12 bg-white/5 border-b border-white/5 flex items-center px-4 gap-2">
+            <div className="h-12 bg-muted border-b border-border flex items-center px-4 gap-2">
               <div className="flex gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#1a1a1a] border border-white/10" />
-                <div className="w-3 h-3 rounded-full bg-[#1a1a1a] border border-white/10" />
-                <div className="w-3 h-3 rounded-full bg-[#1a1a1a] border border-white/10" />
+                <div className="w-3 h-3 rounded-full bg-zinc-300 border border-zinc-400" />
+                <div className="w-3 h-3 rounded-full bg-zinc-300 border border-zinc-400" />
+                <div className="w-3 h-3 rounded-full bg-zinc-300 border border-zinc-400" />
               </div>
-              <div className="mx-auto bg-black/50 px-4 py-1 rounded-md text-xs text-zinc-600 font-mono">
+              <div className="mx-auto bg-background px-4 py-1 rounded-md text-xs text-muted-foreground font-mono shadow-sm">
                 app.niticrms.com/dashboard
               </div>
             </div>
 
             {/* Dashboard Screenshot Mockup Content */}
-            <div className="p-8 grid grid-cols-12 gap-6 bg-[#0a0a0a] min-h-[600px] texture-matte">
+            <div className="p-8 grid grid-cols-12 gap-6 bg-background min-h-[600px] texture-matte">
               {/* Sidebar */}
               <div className="col-span-2 hidden md:block space-y-4">
-                <div className="h-8 w-8 texture-paper rounded-lg mb-8 opacity-80"></div>
+                <div className="h-8 w-8 texture-paper rounded-lg mb-8 opacity-80 bg-primary"></div>
                 <div className="space-y-2">
                   {[1, 2, 3, 4].map(i => (
-                    <div key={i} className="h-10 w-full rounded-lg bg-white/5" />
+                    <div key={i} className="h-10 w-full rounded-lg bg-muted" />
                   ))}
                 </div>
               </div>
@@ -120,23 +120,23 @@ export default function LandingPage() {
               <div className="col-span-12 md:col-span-10 space-y-6">
                 <div className="flex justify-between items-end">
                   <div className="space-y-2">
-                    <div className="h-4 w-32 bg-white/10 rounded" />
-                    <div className="h-8 w-64 bg-white/20 rounded" />
+                    <div className="h-4 w-32 bg-muted rounded" />
+                    <div className="h-8 w-64 bg-muted-foreground/20 rounded" />
                   </div>
-                  <div className="h-10 w-10 rounded-full bg-white/10" />
+                  <div className="h-10 w-10 rounded-full bg-muted" />
                 </div>
 
                 <div className="grid grid-cols-3 gap-6">
                   {[1, 2, 3].map(i => (
-                    <div key={i} className="h-32 rounded-xl bg-white/5 border border-white/5 p-4 relative overflow-hidden group">
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div key={i} className="h-32 rounded-xl bg-card border border-border p-4 relative overflow-hidden group shadow-sm">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   ))}
                 </div>
 
                 <div className="grid grid-cols-2 gap-6 h-64">
-                  <div className="rounded-xl bg-white/5 border border-white/5" />
-                  <div className="rounded-xl bg-white/5 border border-white/5" />
+                  <div className="rounded-xl bg-card border border-border shadow-sm" />
+                  <div className="rounded-xl bg-card border border-border shadow-sm" />
                 </div>
               </div>
             </div>
@@ -145,13 +145,13 @@ export default function LandingPage() {
       </main>
 
       {/* Value Props */}
-      <section className="py-32 relative bg-[#050505] texture-matte">
+      <section className="py-32 relative bg-background texture-matte">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-20 text-center max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Designed for <span className="text-primary italic font-serif">Focus.</span>
             </h2>
-            <p className="text-zinc-400 text-lg">Most CRMs are data dumps. NitiCRMs is an action engine. It tells you exactly what to do next to close the deal.</p>
+            <p className="text-muted-foreground text-lg">Most CRMs are data dumps. NitiCRMs is an action engine. It tells you exactly what to do next to close the deal.</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -166,13 +166,13 @@ export default function LandingPage() {
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
                 key={i}
-                className="p-8 rounded-2xl bg-[#0a0a0a] border border-white/10 hover:border-primary/30 transition-all group hover:-translate-y-1 texture-matte"
+                className="p-8 rounded-2xl bg-card border border-border hover:border-primary/30 transition-all group hover:-translate-y-1 texture-matte shadow-sm"
               >
-                <div className="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-black transition-colors">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors text-primary">
                   <feature.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
-                <p className="text-zinc-500 leading-relaxed">{feature.desc}</p>
+                <h3 className="text-xl font-bold mb-3 text-foreground">{feature.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -180,16 +180,16 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/5 bg-black text-center texture-matte">
+      <footer className="py-12 border-t border-border bg-background text-center texture-matte">
         <div className="flex items-center justify-center gap-2 mb-8 opacity-50">
-          <Image src="/logo_full.jpg" alt="NitiCRMs" width={130} height={40} className="object-contain invert mix-blend-screen" />
+          <Image src="/logo_full.jpg" alt="NitiCRMs" width={130} height={40} className="object-contain" />
         </div>
-        <div className="flex justify-center gap-8 text-sm text-zinc-500 mb-8">
-          <Link href="#" className="hover:text-white transition-colors">Twitter</Link>
-          <Link href="#" className="hover:text-white transition-colors">LinkedIn</Link>
-          <Link href="#" className="hover:text-white transition-colors">GitHub</Link>
+        <div className="flex justify-center gap-8 text-sm text-muted-foreground mb-8">
+          <Link href="#" className="hover:text-foreground transition-colors">Twitter</Link>
+          <Link href="#" className="hover:text-foreground transition-colors">LinkedIn</Link>
+          <Link href="#" className="hover:text-foreground transition-colors">GitHub</Link>
         </div>
-        <p className="text-zinc-600 text-sm">&copy; {new Date().getFullYear()} NitiCRMs Inc. Crafted with precision.</p>
+        <p className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()} NitiCRMs Inc. Crafted with precision.</p>
       </footer>
     </div>
   );

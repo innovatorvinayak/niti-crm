@@ -47,12 +47,12 @@ export default function PipelinePage() {
     };
 
     return (
-        <div className="h-full flex flex-col font-sans text-white">
+        <div className="h-full flex flex-col font-sans text-foreground">
             <div className="flex justify-between items-center mb-6 px-1">
                 <h1 className="text-2xl font-bold flex items-center gap-2">
                     <KanbanSquare className="text-primary" /> Pipeline
                 </h1>
-                <button className="px-4 py-2 bg-primary hover:bg-white text-black rounded-lg text-sm font-bold flex items-center gap-2 transition-colors shadow-lg shadow-primary/20">
+                <button className="px-4 py-2 bg-primary hover:bg-primary/90 text-primary-foreground rounded-lg text-sm font-bold flex items-center gap-2 transition-colors shadow-lg shadow-primary/20">
                     <Plus size={16} /> New Deal
                 </button>
             </div>
@@ -61,13 +61,13 @@ export default function PipelinePage() {
                 {stages.map((stage) => (
                     <div
                         key={stage}
-                        className="flex-shrink-0 w-80 bg-[#0a0a0a] rounded-xl border border-white/5 flex flex-col h-full"
+                        className="flex-shrink-0 w-80 bg-card rounded-xl border border-border flex flex-col h-full"
                         onDrop={(e) => onDrop(e, stage)}
                         onDragOver={onDragOver}
                     >
-                        <div className="p-4 border-b border-white/5 flex justify-between items-center sticky top-0 bg-[#0a0a0a]/90 backdrop-blur-md z-10 rounded-t-xl">
-                            <h3 className="font-semibold text-sm uppercase tracking-wider text-zinc-400">{stage}</h3>
-                            <span className="text-xs bg-zinc-900 border border-white/5 px-2 py-1 rounded-full text-zinc-500 font-mono">
+                        <div className="p-4 border-b border-border flex justify-between items-center sticky top-0 bg-card/90 backdrop-blur-md z-10 rounded-t-xl">
+                            <h3 className="font-semibold text-sm uppercase tracking-wider text-muted-foreground">{stage}</h3>
+                            <span className="text-xs bg-muted border border-border px-2 py-1 rounded-full text-muted-foreground font-mono">
                                 {deals.filter(d => d.stage === stage).length}
                             </span>
                         </div>
@@ -78,18 +78,18 @@ export default function PipelinePage() {
                                     key={deal.id}
                                     draggable
                                     onDragStart={(e) => onDragStart(e, deal.id)}
-                                    className="p-4 bg-zinc-900/40 hover:bg-zinc-800/60 rounded-lg border border-white/5 cursor-grab active:cursor-grabbing hover:border-primary/30 transition-all group shadow-sm"
+                                    className="p-4 bg-muted/40 hover:bg-muted/80 rounded-lg border border-border cursor-grab active:cursor-grabbing hover:border-primary/30 transition-all group shadow-sm"
                                 >
                                     <div className="flex justify-between items-start mb-2">
-                                        <h4 className="font-bold text-white text-sm group-hover:text-primary transition-colors">{deal.title}</h4>
-                                        <button className="text-zinc-600 hover:text-white transition-colors">
+                                        <h4 className="font-bold text-foreground text-sm group-hover:text-primary transition-colors">{deal.title}</h4>
+                                        <button className="text-muted-foreground hover:text-foreground transition-colors">
                                             <MoreHorizontal size={14} />
                                         </button>
                                     </div>
-                                    <p className="text-xs text-zinc-500 mb-3">{deal.company}</p>
+                                    <p className="text-xs text-muted-foreground mb-3">{deal.company}</p>
 
-                                    <div className="flex justify-between items-center text-xs pt-3 border-t border-white/5">
-                                        <span className="font-mono text-green-400 font-semibold bg-green-900/10 px-1.5 py-0.5 rounded border border-green-500/10">{deal.amount}</span>
+                                    <div className="flex justify-between items-center text-xs pt-3 border-t border-border">
+                                        <span className="font-mono text-green-600 font-semibold bg-green-500/10 px-1.5 py-0.5 rounded border border-green-500/20">{deal.amount}</span>
                                         <div className="flex items-center gap-1">
                                             <div className="w-5 h-5 rounded-full bg-primary/10 text-primary border border-primary/20 flex items-center justify-center text-[10px] font-bold">
                                                 {deal.contact.charAt(0)}
@@ -99,7 +99,7 @@ export default function PipelinePage() {
                                 </div>
                             ))}
 
-                            <button className="w-full py-3 text-xs text-zinc-600 hover:text-primary hover:bg-white/5 rounded-lg border border-dashed border-zinc-800 hover:border-primary/30 transition-all flex items-center justify-center gap-2 group">
+                            <button className="w-full py-3 text-xs text-muted-foreground hover:text-primary hover:bg-muted rounded-lg border border-dashed border-border hover:border-primary/30 transition-all flex items-center justify-center gap-2 group">
                                 <Plus size={12} className="group-hover:rotate-90 transition-transform" /> Add Deal
                             </button>
                         </div>
